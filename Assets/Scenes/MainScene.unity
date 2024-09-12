@@ -753,8 +753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeTxt: {fileID: 215371244}
-  endTxt: {fileID: 0}
-  audioSource: {fileID: 784865484}
+  endTxt: {fileID: 993634384}
   clip: {fileID: 8300000, guid: 9627e9e0537ceec47b4b41737e3b642f, type: 3}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
