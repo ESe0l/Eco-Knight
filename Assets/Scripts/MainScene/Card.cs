@@ -9,7 +9,7 @@ public class Card : MonoBehaviour
     public SpriteRenderer frontImage;
     public Animator anim;
 
-    public AudioSource audioSource;
+    private AudioSource audioSource;
      public AudioClip clip;
 
     void Start()

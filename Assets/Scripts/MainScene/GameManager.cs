@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public Text TimeTxt;
     public GameObject endTxt;
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     public AudioClip clip;
 
     int data_Stage = 0;
