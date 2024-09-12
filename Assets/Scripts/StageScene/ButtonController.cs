@@ -8,33 +8,33 @@ public class ButtonController : MonoBehaviour
 {
     public int stage_Num;
     public int card_Set;
-    public int time_Set;
+    public float time_Set;
     public bool act_Gimmick = false;
-    public void Difficultylevel()
+    public void Difficultylevel() 
     {
         GameData.Instance.stageNum = stage_Num;
         GameData.Instance.cardSet = card_Set;
         GameData.Instance.timeSet = time_Set;
         GameData.Instance.actGimmick = act_Gimmick;
 
-        if(stage_Num == 0)
+        if(GameData.Instance.stageNum == 0)
         {
-            card_Set = 8;
-            time_Set = 60;
+            GameData.Instance.cardSet = 8;
+            GameData.Instance.timeSet = 60.0f;
             SceneManager.LoadScene("MainScene");
         }
 
-        else if(stage_Num == 1)
+        else if(GameData.Instance.stageNum== 1)
         {
-            card_Set = 16;
-            time_Set = 50;
+            GameData.Instance.cardSet = 16;
+            GameData.Instance.timeSet = 50.0f;
             SceneManager.LoadScene("MainScene");
         }
 
-        else if(stage_Num == 2)
+        else if(GameData.Instance.stageNum == 2)
         {
-            card_Set = 24;
-            time_Set = 45;
+            GameData.Instance.cardSet = 24;
+            GameData.Instance.timeSet = 45.0f;
             SceneManager.LoadScene("MainScene");
         }
     }

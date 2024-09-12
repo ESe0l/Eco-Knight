@@ -6,8 +6,4 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
-    public void StageBtn()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
 }

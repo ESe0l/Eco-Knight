@@ -6,6 +6,10 @@ public class GameData : MonoBehaviour
 {
     public static GameData Instance;
 
+    public int stageNum = 0;
+    public int cardSet = 8;
+    public float timeSet = 60.0f;
+    public bool actGimmick = false;
     private void Awake()
     {
         if (Instance == null)
@@ -13,13 +17,5 @@ public class GameData : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else if(Instance != this)
-        {
-            Destroy(gameObject);
-        }
     }
-    public int stageNum ;
-    public int cardSet ;
-    public float timeSet;
-    public bool actGimmick ;
 }

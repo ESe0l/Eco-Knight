@@ -277,7 +277,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 25997806}
-  - component: {fileID: 25997808}
   - component: {fileID: 25997809}
   m_Layer: 0
   m_Name: StageManager
@@ -301,18 +300,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &25997808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25997805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7804f55e90eb90e498cc0912a8332164, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &25997809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +403,6 @@ GameObject:
   - component: {fileID: 464653757}
   - component: {fileID: 464653756}
   - component: {fileID: 464653755}
-  - component: {fileID: 464653758}
   - component: {fileID: 464653754}
   m_Layer: 5
   m_Name: Normal_Btn
@@ -505,9 +491,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 464653758}
-        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: StageBtn
+      - m_Target: {fileID: 464653754}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: Difficultylevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -555,18 +541,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464653752}
   m_CullTransparentMesh: 1
---- !u!114 &464653758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464653752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535fc2b42780cbc43b9b7c57dd58c73e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &550580519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1175,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804f55e90eb90e498cc0912a8332164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1229268023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229268025}
+  - component: {fileID: 1229268024}
+  m_Layer: 0
+  m_Name: GameData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1229268024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229268023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef18ac163a47a741ab88e5f78a7670f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNum: 0
+  cardSet: 8
+  timeSet: 0
+  actGimmick: 0
+--- !u!4 &1229268025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229268023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.2455106, y: 1.5771339, z: 528.49493}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1516152896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1234,6 @@ GameObject:
   - component: {fileID: 1516152900}
   - component: {fileID: 1516152899}
   - component: {fileID: 1516152902}
-  - component: {fileID: 1516152901}
   - component: {fileID: 1516152898}
   m_Layer: 5
   m_Name: Easy_Btn
@@ -1296,18 +1316,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516152896}
   m_CullTransparentMesh: 1
---- !u!114 &1516152901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516152896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535fc2b42780cbc43b9b7c57dd58c73e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1516152902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,9 +1360,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1516152901}
-        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: StageBtn
+      - m_Target: {fileID: 1516152898}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: Difficultylevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1460,7 +1468,6 @@ GameObject:
   - component: {fileID: 1670895310}
   - component: {fileID: 1670895309}
   - component: {fileID: 1670895308}
-  - component: {fileID: 1670895311}
   - component: {fileID: 1670895307}
   m_Layer: 5
   m_Name: Hard_Btn
@@ -1549,9 +1556,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1670895311}
-        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: StageBtn
+      - m_Target: {fileID: 1670895307}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: Difficultylevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1599,18 +1606,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670895305}
   m_CullTransparentMesh: 1
---- !u!114 &1670895311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670895305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535fc2b42780cbc43b9b7c57dd58c73e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1703358930
 GameObject:
   m_ObjectHideFlags: 0
