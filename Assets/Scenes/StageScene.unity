@@ -277,6 +277,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 25997806}
+  - component: {fileID: 25997807}
+  - component: {fileID: 25997808}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -299,6 +301,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25997807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25997805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705c08a0d7852e84baf212bfc7e7f29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Btn_E: {fileID: 1516152896}
+  Btn_N: {fileID: 464653752}
+  Btn_H: {fileID: 1670895305}
+--- !u!114 &25997808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25997805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7804f55e90eb90e498cc0912a8332164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &171763946
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705c08a0d7852e84baf212bfc7e7f29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Btn_E: {fileID: 0}
+  Btn_N: {fileID: 0}
+  Btn_H: {fileID: 0}
 --- !u!114 &464653755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,12 +507,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1670895307}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -801,6 +833,7 @@ GameObject:
   - component: {fileID: 1092586996}
   - component: {fileID: 1092586995}
   - component: {fileID: 1092586994}
+  - component: {fileID: 1092586997}
   m_Layer: 5
   m_Name: Btn_Back
   m_TagString: Untagged
@@ -872,13 +905,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 705c08a0d7852e84baf212bfc7e7f29d, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1092586997}
+        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -922,6 +955,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092586992}
   m_CullTransparentMesh: 1
+--- !u!114 &1092586997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092586992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7804f55e90eb90e498cc0912a8332164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1516152896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,12 +1052,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1516152901}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1068,6 +1113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705c08a0d7852e84baf212bfc7e7f29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Btn_E: {fileID: 0}
+  Btn_N: {fileID: 0}
+  Btn_H: {fileID: 0}
 --- !u!1 &1664888772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705c08a0d7852e84baf212bfc7e7f29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Btn_E: {fileID: 1516152896}
+  Btn_N: {fileID: 464653752}
+  Btn_H: {fileID: 1670895305}
 --- !u!114 &1670895308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,12 +1298,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1670895307}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1414,7 +1465,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8f8c3e1933c25b34d96377f1055a58cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
