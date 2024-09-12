@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public Text TimeTxt;
+    public GameObject endTxt;
+    public AudioSource audioSource;
+    public AudioClip clip;
+
     int data_Stage = 0;
     int data_Card = 8;
     float data_Time = 60.0f;
@@ -16,7 +20,6 @@ public class GameManager : MonoBehaviour
 
     public Card firstCard;
     public Card secondCard;
-    //public GameObject endTxt;
 
     private void Awake()
     {
@@ -35,6 +38,9 @@ public class GameManager : MonoBehaviour
         data_Time = GameData.Instance.timeSet;
 
         cardCount = data_Card;
+
+        Time.timeScale = 1.0f;
+        audioSource = GetComponent<AudioSource>();
     }
 // Update is called once per frame
     void Update()
@@ -47,14 +53,16 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            //audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clip);
+
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
+            
             if (cardCount == 0)
             {
+                endTxt.SetActive(true);
                 Time.timeScale = 0;
-                //endTxt.SetActive(true);
             }
         }
         else

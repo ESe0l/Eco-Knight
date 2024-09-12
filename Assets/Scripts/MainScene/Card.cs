@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Card : MonoBehaviour
@@ -11,27 +9,30 @@ public class Card : MonoBehaviour
     public SpriteRenderer frontImage;
     public Animator anim;
 
-    // Start is called before the first frame update
+    public AudioSource audioSource;
+     public AudioClip clip;
+
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Setting(int number)
     {
         idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"Rtan{idx}");
+        frontImage.sprite = Resources.Load<Sprite>($"MainScene\\Character_each\\Character{idx}");
     }
 
     public void OpenCard()
     {
-        //audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clip);
+
         anim.SetBool("isOpen", true);
         front.SetActive(true);
         back.SetActive(false);
