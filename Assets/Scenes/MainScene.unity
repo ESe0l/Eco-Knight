@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeTxt: {fileID: 215371244}
+  cardCount: 0
 --- !u!4 &784865483
 Transform:
   m_ObjectHideFlags: 0
@@ -668,5 +669,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce63833357c411bb018c3ac41fc85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards: {fileID: 0}
+  cards: {fileID: 1925858123140192740, guid: 7c6bd5f520e864b0db611eb73b1b9c8a, type: 3}
   card: {fileID: 1925858123140192741, guid: 7c6bd5f520e864b0db611eb73b1b9c8a, type: 3}
