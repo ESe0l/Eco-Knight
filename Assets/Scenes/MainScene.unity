@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 784865483}
   - component: {fileID: 784865482}
   m_Layer: 0
-  m_Name: GameManger
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,7 +610,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeTxt: {fileID: 215371244}
-  cardCount: 0
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
+  endTxt: {fileID: 0}
 --- !u!4 &784865483
 Transform:
   m_ObjectHideFlags: 0

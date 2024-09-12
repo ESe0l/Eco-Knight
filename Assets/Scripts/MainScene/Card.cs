@@ -23,38 +23,45 @@ public class Card : MonoBehaviour
         
     }
 
-    public void Setting(int number) //매게변수
+    public void Setting(int number)
     {
-        idx=number;
-        frontImage.sprite = Resources.Load<Sprite>($"MainScene\\Character_each\\Character{idx}"); //<자료형>(경로 즉 파일명)|$"문자{변수}"
+        idx = number;
+        frontImage.sprite = Resources.Load<Sprite>($"Rtan{idx}");
     }
 
     public void OpenCard()
     {
+        //audioSource.PlayOneShot(clip);
+        anim.SetBool("isOpen", true);
+        front.SetActive(true);
+        back.SetActive(false);
+
+        if (GameManager.Instance.firstCard == null)
         {
-            anim.SetBool("isOpen", true);
-            front.SetActive(true);
-            back.SetActive(false);
+            GameManager.Instance.firstCard = this;
+        }
+        else
+        {
+            GameManager.Instance.secondCard = this;
+            GameManager.Instance.Matched();
         }
     }
+
     public void DestroyCard()
     {
-        Invoke("DestoryCardInvoke", 1.0f);
+        Invoke("DestroyCardInvoke", 1.0f);
     }
-
-    void DestoryCardInvoke()
+    public void DestroyCardInvoke()
     {
         Destroy(gameObject);
     }
-
     public void CloseCard()
     {
         Invoke("CloseCardInvoke", 1.0f);
     }
-
-    void CloseCardInvoke()
+    public void CloseCardInvoke()
     {
-        anim.SetBool("isOepn", false);
+        anim.SetBool("isOpen", false);
         front.SetActive(false);
         back.SetActive(true);
     }
