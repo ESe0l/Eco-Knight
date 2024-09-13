@@ -12,6 +12,12 @@ public class Card : MonoBehaviour
     private AudioSource audioSource;
      public AudioClip clip;
 
+    //Gimmick
+    public bool actMove = false;
+    public Vector3 moveDest = Vector3.zero;
+    Vector3 velocity = Vector3.zero;
+    float moveTime = 0.0f;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -20,7 +26,17 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Gimmick
+        if (actMove)
+        {
+            actMove = false;
+            moveTime = 0.5f;
+        }
+        if (moveTime > 0f)
+        {
+            moveTime -= Time.deltaTime;
+            transform.position = Vector3.SmoothDamp(transform.position, moveDest, ref velocity, 0.1f);
+        }
     }
 
     public void Setting(int number)

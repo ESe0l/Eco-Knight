@@ -22,6 +22,7 @@ public class GameData : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             record = Enumerable.Repeat(float.MaxValue, 10).ToArray();
+            stageUnlock = new bool[10];
             stageUnlock[0] = true; //first stage unlock
         }
     }
