@@ -9,6 +9,10 @@ public class OptionButton : MonoBehaviour
     public Button startBtn;
 
     bool isOpen = false;
+    public void Set_isOpen(bool value)
+    {
+        isOpen = value;
+    }
 
     public void ToggleOption()
     {
