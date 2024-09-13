@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Text bestScore;
 
     bool isPlay = true;
+    public static bool isUnlock;
     int data_Stage = 0;
     int data_Card = 8;
     float data_Time = 60.0f;
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
             if (cardCount == 0)
             {
                 isPlay = false;
+                isUnlock = true;
                 Time.timeScale = 0;
                 nowScore.text = data_Time.ToString("N2");
                 endPanel.SetActive(true);

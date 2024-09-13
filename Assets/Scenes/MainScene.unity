@@ -1412,8 +1412,10 @@ MonoBehaviour:
   TimeTxt: {fileID: 215371244}
   nowScore: {fileID: 1205366435}
   bestScore: {fileID: 610546977}
+  isPlay: 1
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
+  gimmickInterval: 4
 --- !u!4 &784865483
 Transform:
   m_ObjectHideFlags: 0
