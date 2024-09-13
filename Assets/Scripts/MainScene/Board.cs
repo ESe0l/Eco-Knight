@@ -6,11 +6,21 @@ using System.Linq;
 
 public class Board : MonoBehaviour
 {
+    public static Board Instance;
+
     public Transform cards;
     public GameObject card;
 
     int data_Card = 8;
-    
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -140,5 +150,25 @@ public class Board : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //Gimmic
+    public void SuffleRandomChild(Transform child1, Transform child2)
+    {
+        int numOfChild = this.transform.childCount;
+        List<Transform> cards = new List<Transform>();
+        for (int i = 0; i < numOfChild; i++)
+            cards.Add(transform.GetChild(i));
+        cards.Remove(child1);
+        cards.Remove(child2);
+        numOfChild -= 2;
+        int rand1 = Random.Range(0, 2);
+        int rand2 = Random.Range(0, numOfChild);
+        Card card1 = (rand1 == 0) ? child1.GetComponent<Card>() : child2.GetComponent<Card>();
+        Card card2 = cards[rand2].GetComponent<Card>();
+        card1.moveDest = card2.transform.localPosition;
+        card2.moveDest = card1.transform.localPosition;
+        card1.actMove = true;
+        card2.actMove = true;
     }
 }

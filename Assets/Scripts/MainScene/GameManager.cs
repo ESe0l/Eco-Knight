@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
 
+    public int gimmickInterval = 4;
+    int gimmickCount = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -47,6 +50,8 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
+
+        gimmickCount = gimmickInterval;
     }
 // Update is called once per frame
     void Update()
@@ -100,6 +105,19 @@ public class GameManager : MonoBehaviour
         {
             firstCard.CloseCard();
             secondCard.CloseCard();
+
+            if (GameData.Instance.actGimmick)
+            {
+                if (cardCount >= 4)
+                {
+                    gimmickCount--;
+                    if (gimmickCount <= 0)
+                    {
+                        Board.Instance.SuffleRandomChild(firstCard.transform, secondCard.transform);
+                        gimmickCount = gimmickInterval;
+                    }
+                }
+            }
         }
 
         firstCard = null;
