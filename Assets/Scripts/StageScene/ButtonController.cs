@@ -10,12 +10,14 @@ public class ButtonController : MonoBehaviour
     public int card_Set;
     public float time_Set;
     public bool act_Gimmick = false;
+    public bool [] stageUnlock;
     public void Difficultylevel() 
     {
         GameData.Instance.stageNum = stage_Num;
         GameData.Instance.cardSet = card_Set;
         GameData.Instance.timeSet = time_Set;
         GameData.Instance.actGimmick = act_Gimmick;
+        GameData.Instance.stageUnlock = new bool[10];
 
         if(GameData.Instance.stageNum == 0)
         {
