@@ -7,12 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public Text TimeTxt;
-    public GameObject endTxt;
+    public GameObject endPanel;
     private AudioSource audioSource;
     public AudioClip clip;
-    public GameObject endPanel;
-
+    public Text TimeTxt;
+    public Text nowScore;
+    
+    bool isPlay = true;
     int data_Stage = 0;
     int data_Card = 8;
     float data_Time = 60.0f;
@@ -46,8 +47,11 @@ public class GameManager : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
+        if(isPlay)
+        {
         data_Time -= Time.deltaTime;
         TimeTxt.text = data_Time.ToString("N2");
+        }
     }
 
     public void Matched()
@@ -62,9 +66,10 @@ public class GameManager : MonoBehaviour
             
             if (cardCount == 0)
             {
-                endPanel.SetActive(true);
+                isPlay = false;
                 Time.timeScale = 0;
-                GameData.Instance.stageUnlock = true;
+                endPanel.SetActive(true);
+                GameData.Instance.stageUnlock = true;   
             }
         }
         else
