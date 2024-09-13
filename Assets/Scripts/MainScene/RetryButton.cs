@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleButton : MonoBehaviour
+public class RetryButton : MonoBehaviour
 {
-    public void TtitleBtn()
+    public void Retry()
     {
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("MainScene");
     }
 }
+

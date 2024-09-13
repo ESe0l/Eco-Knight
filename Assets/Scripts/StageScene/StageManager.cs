@@ -1,22 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.Globalization;
+using System.Runtime.InteropServices;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.GameCenter;
 
 public class StageManager : MonoBehaviour
 {
-    GameObject easy_Btn;
-    GameObject normal_Btn;
-    GameObject Hard_Btn;
+    public GameObject easy;
+    public GameObject normal;
+    public GameObject Hard; 
+    public StageManager Instance;
 
-    bool stage_Unlock = false;
+    public bool [] stage_Unlock;
+
     public void Unlock()
     {
-        GameData.Instance.stageUnlock = stage_Unlock;
-        if(stage_Unlock == true)
+        GameData.Instance.stageUnlock = new bool [10];
+        bool [] stageUnlock = {easy, normal, Hard};
+
+        if(stageUnlock[0])
         {
-            normal_Btn.SetActive(true);
+            
         }
-    }
+    }  
+
 }

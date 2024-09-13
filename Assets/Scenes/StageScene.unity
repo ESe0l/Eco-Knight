@@ -312,6 +312,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535fc2b42780cbc43b9b7c57dd58c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easy: {fileID: 1516152896}
+  normal: {fileID: 464653752}
+  Hard: {fileID: 1092586992}
+  Instance: {fileID: 0}
+  stage_Unlock: 
 --- !u!1 &171763946
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +452,7 @@ MonoBehaviour:
   card_Set: 16
   time_Set: 50
   act_Gimmick: 0
+  stageUnlock: 
 --- !u!114 &464653755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,11 +1210,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef18ac163a47a741ab88e5f78a7670f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageUnlock: 0
   stageNum: 0
   cardSet: 8
   timeSet: 0
   actGimmick: 0
+  record:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  stageUnlock: 000000
 --- !u!4 &1229268025
 Transform:
   m_ObjectHideFlags: 0
@@ -1279,6 +1296,7 @@ MonoBehaviour:
   card_Set: 8
   time_Set: 60
   act_Gimmick: 0
+  stageUnlock: 
 --- !u!114 &1516152899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,6 +1531,7 @@ MonoBehaviour:
   card_Set: 24
   time_Set: 45
   act_Gimmick: 0
+  stageUnlock: 
 --- !u!114 &1670895308
 MonoBehaviour:
   m_ObjectHideFlags: 0

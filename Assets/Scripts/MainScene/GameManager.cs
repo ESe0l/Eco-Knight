@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +13,16 @@ public class GameManager : MonoBehaviour
     public AudioClip clip;
     public Text TimeTxt;
     public Text nowScore;
-    
+    public Text bestScore;
+
     bool isPlay = true;
     int data_Stage = 0;
     int data_Card = 8;
     float data_Time = 60.0f;
     bool data_Gimmick = false;
     int cardCount;
+    string key = "bestScore";
+
 
     public Card firstCard;
     public Card secondCard;
@@ -68,8 +72,28 @@ public class GameManager : MonoBehaviour
             {
                 isPlay = false;
                 Time.timeScale = 0;
+                nowScore.text = data_Time.ToString("N2");
                 endPanel.SetActive(true);
-                GameData.Instance.stageUnlock = true;   
+
+
+                if (PlayerPrefs.HasKey(key))
+                {
+                    float best = PlayerPrefs.GetFloat(key);
+                    if(best < data_Time)
+                    {
+                        PlayerPrefs.SetFloat(key, data_Time);
+                        bestScore.text = data_Time.ToString("N2");
+                    } 
+                    else
+                    {
+                        bestScore.text = best.ToString("N2");
+                    }
+                }
+                else
+                {
+                    PlayerPrefs.SetFloat(key, data_Time);
+                    bestScore.text = data_Time.ToString("N2");
+                }
             }
         }
         else

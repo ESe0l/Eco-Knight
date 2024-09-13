@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &84215080
 Transform:
   m_ObjectHideFlags: 0
@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 103255361}
   - component: {fileID: 103255360}
   - component: {fileID: 103255359}
+  - component: {fileID: 103255362}
   m_Layer: 5
   m_Name: Stage_Btn
   m_TagString: Untagged
@@ -400,7 +401,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 103255360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 103255362}
+        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
+        m_MethodName: ExitToStageScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &103255360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +452,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103255357}
   m_CullTransparentMesh: 1
+--- !u!114 &103255362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103255357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3dc1708e7628a4a98b981821985769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &215371242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1167,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1462821099}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1322,11 +1347,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef18ac163a47a741ab88e5f78a7670f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageUnlock: 0
   stageNum: 0
   cardSet: 8
   timeSet: 60
   actGimmick: 0
+  record:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  stageUnlock: 
 --- !u!4 &760651659
 Transform:
   m_ObjectHideFlags: 0
@@ -1371,10 +1407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3490d4f08fe584a25870c8f048d611ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeTxt: {fileID: 215371244}
-  endTxt: {fileID: 993634384}
+  endPanel: {fileID: 84215079}
   clip: {fileID: 8300000, guid: 9627e9e0537ceec47b4b41737e3b642f, type: 3}
-  endPanel: {fileID: 0}
+  TimeTxt: {fileID: 215371244}
+  nowScore: {fileID: 1205366435}
+  bestScore: {fileID: 610546977}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
 --- !u!4 &784865483
@@ -1499,6 +1536,7 @@ GameObject:
   - component: {fileID: 789987766}
   - component: {fileID: 789987765}
   - component: {fileID: 789987764}
+  - component: {fileID: 789987767}
   m_Layer: 5
   m_Name: Retry_Btn
   m_TagString: Untagged
@@ -1519,7 +1557,7 @@ RectTransform:
   m_Children:
   - {fileID: 455640227}
   m_Father: {fileID: 1462821099}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1569,7 +1607,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 789987765}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 789987767}
+        m_TargetAssemblyTypeName: RetryButton, Assembly-CSharp
+        m_MethodName: Retry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &789987765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,6 +1658,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789987762}
   m_CullTransparentMesh: 1
+--- !u!114 &789987767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789987762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94affe39db328fe4e9480b699744ed97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &885114140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2325,7 @@ GameObject:
   - component: {fileID: 1205459475}
   - component: {fileID: 1205459474}
   - component: {fileID: 1205459473}
+  - component: {fileID: 1205459476}
   m_Layer: 5
   m_Name: Title_Btn
   m_TagString: Untagged
@@ -2333,7 +2396,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1205459474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1205459476}
+        m_TargetAssemblyTypeName: TitleButton, Assembly-CSharp
+        m_MethodName: TtitleBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1205459474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,6 +2447,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205459471}
   m_CullTransparentMesh: 1
+--- !u!114 &1205459476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205459471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1504134f6ff06e74d9018ee89c186b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1462821098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,9 +2492,9 @@ RectTransform:
   - {fileID: 1920369320}
   - {fileID: 1205459472}
   - {fileID: 103255358}
+  - {fileID: 789987763}
   - {fileID: 1532678718}
   - {fileID: 616694662}
-  - {fileID: 789987763}
   - {fileID: 1205366434}
   - {fileID: 610546976}
   - {fileID: 1985855756}
@@ -2510,7 +2597,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1462821099}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
