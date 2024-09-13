@@ -962,7 +962,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1351,18 +1351,6 @@ MonoBehaviour:
   cardSet: 8
   timeSet: 60
   actGimmick: 0
-  record:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  stageUnlock: 
 --- !u!4 &760651659
 Transform:
   m_ObjectHideFlags: 0

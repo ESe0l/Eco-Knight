@@ -10,7 +10,7 @@ public class Card : MonoBehaviour
     public Animator anim;
 
     private AudioSource audioSource;
-     public AudioClip clip;
+    public AudioClip clip;
 
     //Gimmick
     public bool actMove = false;
@@ -31,12 +31,18 @@ public class Card : MonoBehaviour
         {
             actMove = false;
             moveTime = 0.5f;
+            //Invoke("Teleport",1.0f); //SmoothDamp 함수 쓰니까 위치가 잘 안맞음
         }
         if (moveTime > 0f)
         {
             moveTime -= Time.deltaTime;
-            transform.position = Vector3.SmoothDamp(transform.position, moveDest, ref velocity, 0.1f);
+            transform.position = Vector3.SmoothDamp(transform.position, moveDest, ref velocity, 0.05f);
         }
+    }
+    void Teleport()
+    {
+        Debug.Log("ddfsf");
+        transform.position = moveDest;
     }
 
     public void Setting(int number)

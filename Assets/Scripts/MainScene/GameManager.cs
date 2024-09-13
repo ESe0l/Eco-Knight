@@ -63,8 +63,14 @@ public class GameManager : MonoBehaviour
     {
         if(isPlay)
         {
-        data_Time -= Time.deltaTime;
-        TimeTxt.text = data_Time.ToString("N2");
+            data_Time -= Time.deltaTime;
+            TimeTxt.text = data_Time.ToString("N2");
+
+            //Game Over
+            if (data_Time <= 0.0f)
+            {
+                EndGame(false);
+            }
         }
 
         //Cheat Code
@@ -72,20 +78,81 @@ public class GameManager : MonoBehaviour
         {
             cheatUsed = true;
 
-            isPlay = false;
-            Time.timeScale = 0;
-            nowScore.text = data_Time.ToString("N2");
-            endPanel.SetActive(true);
+            EndGame(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Backspace) && cheatUsed == false)
+        {
+            cheatUsed = true;
 
-            string keyBest = "";
-            string keyUnlock = "";
-            switch (GameData.Instance.stageNum)
+            EndGame(false);
+        }
+    }
+
+    public void Matched()
+    {
+        if (firstCard.idx == secondCard.idx)
+        {
+            audioSource.PlayOneShot(clip);
+
+            firstCard.DestroyCard();
+            secondCard.DestroyCard();
+            cardCount -= 2;
+
+            //Game Clear
+            if (cardCount == 0)
             {
-                case 0: keyBest = GameData.Instance.bestEasy; keyUnlock = GameData.Instance.unlockNormal; break;
-                case 1: keyBest = GameData.Instance.bestNormal; keyUnlock = GameData.Instance.unlockHard; break;
-                case 2: keyBest = GameData.Instance.bestHard; keyUnlock = GameData.Instance.unlockHidden; break;
-                case 3: keyBest = GameData.Instance.bestHard; break;
+                EndGame(true);
             }
+        }
+        else
+        {
+            firstCard.CloseCard();
+            secondCard.CloseCard();
+
+            //Gimmick
+            if (GameData.Instance.actGimmick)
+            {
+                if (cardCount >= 4)
+                {
+                    gimmickCount--;
+                    if (gimmickCount <= 0)
+                    {
+                        Board.Instance.SuffleRandomChild(firstCard.transform, secondCard.transform);
+                        gimmickCount = gimmickInterval;
+                    }
+                }
+            }
+        }
+
+        firstCard = null;
+        secondCard = null;
+    }
+
+    void EndGame(bool isClear)
+    {
+        isPlay = false;
+
+        if(isClear == false)
+        {
+            data_Time = 0.0f;
+            TimeTxt.text = data_Time.ToString("N2");
+        }
+        Time.timeScale = 0;
+        nowScore.text = data_Time.ToString("N2");
+        endPanel.SetActive(true);
+
+        string keyBest = "";
+        string keyUnlock = "";
+        switch (GameData.Instance.stageNum)
+        {
+            case 0: keyBest = GameData.Instance.bestEasy; keyUnlock = GameData.Instance.unlockNormal; break;
+            case 1: keyBest = GameData.Instance.bestNormal; keyUnlock = GameData.Instance.unlockHard; break;
+            case 2: keyBest = GameData.Instance.bestHard; keyUnlock = GameData.Instance.unlockHidden; break;
+            case 3: keyBest = GameData.Instance.bestHard; break;
+        }
+
+        if (isClear)
+        {
             if (PlayerPrefs.HasKey(keyBest))
             {
                 float best = PlayerPrefs.GetFloat(keyBest);
@@ -121,94 +188,18 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-    }
-
-    public void Matched()
-    {
-        if (firstCard.idx == secondCard.idx)
-        {
-            audioSource.PlayOneShot(clip);
-
-            firstCard.DestroyCard();
-            secondCard.DestroyCard();
-            cardCount -= 2;
-
-
-            //Game Clear
-            string keyBest = "";
-            string keyUnlock = "";
-            switch (GameData.Instance.stageNum)
-            {
-                case 0: keyBest = GameData.Instance.bestEasy; keyUnlock = GameData.Instance.unlockNormal; break;
-                case 1: keyBest = GameData.Instance.bestNormal; keyUnlock = GameData.Instance.unlockHard; break;
-                case 2: keyBest = GameData.Instance.bestHard; keyUnlock = GameData.Instance.unlockHidden; break;
-                case 3: keyBest = GameData.Instance.bestHard; break;
-            }
-            if (cardCount == 0)
-            {
-                isPlay = false;
-                //isUnlock = true;
-                Time.timeScale = 0;
-                nowScore.text = data_Time.ToString("N2");
-                endPanel.SetActive(true);
-
-
-                if (PlayerPrefs.HasKey(keyBest))
-                {
-                    float best = PlayerPrefs.GetFloat(keyBest);
-                    if(best < data_Time)
-                    {
-                        PlayerPrefs.SetFloat(keyBest, data_Time);
-                        bestScore.text = data_Time.ToString("N2");
-                    } 
-                    else
-                    {
-                        bestScore.text = best.ToString("N2");
-                    }
-                }
-                else
-                {
-                    PlayerPrefs.SetFloat(keyBest, data_Time);
-                    bestScore.text = data_Time.ToString("N2");
-                }
-
-                switch (GameData.Instance.stageNum)
-                {
-                    case 0:
-                        PlayerPrefs.SetInt(keyUnlock, 1);
-                        break;
-                    case 1:
-                        PlayerPrefs.SetInt(keyUnlock, 1);
-                        break;
-                    case 2:
-                        if(data_Time > 5)
-                        {
-                            PlayerPrefs.SetInt(keyUnlock, 1);
-                        }
-                        break;
-                }
-            }
-        }
         else
         {
-            firstCard.CloseCard();
-            secondCard.CloseCard();
-
-            if (GameData.Instance.actGimmick)
+            if (PlayerPrefs.HasKey(keyBest) && PlayerPrefs.GetFloat(keyBest) > 0.0f)
             {
-                if (cardCount >= 4)
-                {
-                    gimmickCount--;
-                    if (gimmickCount <= 0)
-                    {
-                        Board.Instance.SuffleRandomChild(firstCard.transform, secondCard.transform);
-                        gimmickCount = gimmickInterval;
-                    }
-                }
+                float best = PlayerPrefs.GetFloat(keyBest);
+                bestScore.text = best.ToString("N2");
+            }
+            else
+            {
+                PlayerPrefs.SetFloat(keyBest, data_Time);
+                bestScore.text = "Empty";
             }
         }
-
-        firstCard = null;
-        secondCard = null;
     }
 }

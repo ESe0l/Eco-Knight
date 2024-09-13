@@ -315,6 +315,7 @@ MonoBehaviour:
   easy: {fileID: 1516152896}
   normal: {fileID: 464653752}
   hard: {fileID: 1670895305}
+  hidden: {fileID: 0}
   stage_Num: 0
   isUnlock: 0
 --- !u!1 &171763946
@@ -752,7 +753,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1213,18 +1214,6 @@ MonoBehaviour:
   cardSet: 8
   timeSet: 0
   actGimmick: 0
-  record:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  stageUnlock: 000000
 --- !u!4 &1229268025
 Transform:
   m_ObjectHideFlags: 0
