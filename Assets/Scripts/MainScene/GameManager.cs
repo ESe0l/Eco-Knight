@@ -16,13 +16,13 @@ public class GameManager : MonoBehaviour
     public Text bestScore;
 
     bool isPlay = true;
-    public static bool isUnlock;
+    //public static bool isUnlock;
     int data_Stage = 0;
     int data_Card = 8;
     float data_Time = 60.0f;
     bool data_Gimmick = false;
     int cardCount;
-    string key = "bestScore";
+    //string key = "bestScore";
 
 
     public Card firstCard;
@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     public int gimmickInterval = 4;
     int gimmickCount = 0;
+
+    bool cheatUsed = false;
 
     private void Awake()
     {
@@ -53,6 +55,8 @@ public class GameManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         gimmickCount = gimmickInterval;
+
+        cheatUsed = false;
     }
 // Update is called once per frame
     void Update()
@@ -61,6 +65,61 @@ public class GameManager : MonoBehaviour
         {
         data_Time -= Time.deltaTime;
         TimeTxt.text = data_Time.ToString("N2");
+        }
+
+        //Cheat Code
+        if (Input.GetKeyDown(KeyCode.Space) && cheatUsed == false)
+        {
+            cheatUsed = true;
+
+            isPlay = false;
+            Time.timeScale = 0;
+            nowScore.text = data_Time.ToString("N2");
+            endPanel.SetActive(true);
+
+            string keyBest = "";
+            string keyUnlock = "";
+            switch (GameData.Instance.stageNum)
+            {
+                case 0: keyBest = GameData.Instance.bestEasy; keyUnlock = GameData.Instance.unlockNormal; break;
+                case 1: keyBest = GameData.Instance.bestNormal; keyUnlock = GameData.Instance.unlockHard; break;
+                case 2: keyBest = GameData.Instance.bestHard; keyUnlock = GameData.Instance.unlockHidden; break;
+                case 3: keyBest = GameData.Instance.bestHard; break;
+            }
+            if (PlayerPrefs.HasKey(keyBest))
+            {
+                float best = PlayerPrefs.GetFloat(keyBest);
+                if (best < data_Time)
+                {
+                    PlayerPrefs.SetFloat(keyBest, data_Time);
+                    bestScore.text = data_Time.ToString("N2");
+                }
+                else
+                {
+                    bestScore.text = best.ToString("N2");
+                }
+            }
+            else
+            {
+                PlayerPrefs.SetFloat(keyBest, data_Time);
+                bestScore.text = data_Time.ToString("N2");
+            }
+
+            switch (GameData.Instance.stageNum)
+            {
+                case 0:
+                    PlayerPrefs.SetInt(keyUnlock, 1);
+                    break;
+                case 1:
+                    PlayerPrefs.SetInt(keyUnlock, 1);
+                    break;
+                case 2:
+                    if (data_Time > 5)
+                    {
+                        PlayerPrefs.SetInt(keyUnlock, 1);
+                    }
+                    break;
+            }
         }
     }
 
@@ -73,22 +132,33 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
-            
+
+
+            //Game Clear
+            string keyBest = "";
+            string keyUnlock = "";
+            switch (GameData.Instance.stageNum)
+            {
+                case 0: keyBest = GameData.Instance.bestEasy; keyUnlock = GameData.Instance.unlockNormal; break;
+                case 1: keyBest = GameData.Instance.bestNormal; keyUnlock = GameData.Instance.unlockHard; break;
+                case 2: keyBest = GameData.Instance.bestHard; keyUnlock = GameData.Instance.unlockHidden; break;
+                case 3: keyBest = GameData.Instance.bestHard; break;
+            }
             if (cardCount == 0)
             {
                 isPlay = false;
-                isUnlock = true;
+                //isUnlock = true;
                 Time.timeScale = 0;
                 nowScore.text = data_Time.ToString("N2");
                 endPanel.SetActive(true);
 
 
-                if (PlayerPrefs.HasKey(key))
+                if (PlayerPrefs.HasKey(keyBest))
                 {
-                    float best = PlayerPrefs.GetFloat(key);
+                    float best = PlayerPrefs.GetFloat(keyBest);
                     if(best < data_Time)
                     {
-                        PlayerPrefs.SetFloat(key, data_Time);
+                        PlayerPrefs.SetFloat(keyBest, data_Time);
                         bestScore.text = data_Time.ToString("N2");
                     } 
                     else
@@ -98,8 +168,24 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    PlayerPrefs.SetFloat(key, data_Time);
+                    PlayerPrefs.SetFloat(keyBest, data_Time);
                     bestScore.text = data_Time.ToString("N2");
+                }
+
+                switch (GameData.Instance.stageNum)
+                {
+                    case 0:
+                        PlayerPrefs.SetInt(keyUnlock, 1);
+                        break;
+                    case 1:
+                        PlayerPrefs.SetInt(keyUnlock, 1);
+                        break;
+                    case 2:
+                        if(data_Time > 5)
+                        {
+                            PlayerPrefs.SetInt(keyUnlock, 1);
+                        }
+                        break;
                 }
             }
         }

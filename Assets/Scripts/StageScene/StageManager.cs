@@ -22,7 +22,7 @@ public class StageManager : MonoBehaviour
 
     public void Start()
     {
-        GameData.Instance.stageNum = stage_Num;
+        /*GameData.Instance.stageNum = stage_Num;
         if(isUnlock)
         {
             if (stage_Num == 0)
@@ -39,7 +39,33 @@ public class StageManager : MonoBehaviour
                     hard.SetActive(true);
                 }
             }
+        }*/
+        if (PlayerPrefs.HasKey(GameData.Instance.unlockNormal) && PlayerPrefs.GetInt(GameData.Instance.unlockNormal) == 1)
+        {
+            normal.SetActive(true);
         }
+        else
+        {
+            normal.SetActive(false);
+        }
+
+        if (PlayerPrefs.HasKey(GameData.Instance.unlockHard) && PlayerPrefs.GetInt(GameData.Instance.unlockHard) == 1)
+        {
+            hard.SetActive(true);
+        }
+        else
+        {
+            hard.SetActive(false);
+        }
+
+        /*if (PlayerPrefs.HasKey(GameData.Instance.unlockHidden) && PlayerPrefs.GetInt(GameData.Instance.unlockHidden) == 1)
+        {
+            easy.SetActive(true);
+        }
+        else
+        {
+            easy.SetActive(false);
+        }*/
     }
 }
 

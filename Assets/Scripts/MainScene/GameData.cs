@@ -11,8 +11,14 @@ public class GameData : MonoBehaviour
     public float timeSet = 60.0f;
     public bool actGimmick = false;
 
-    public float[] record = new float[10];      //game record
-    public bool[] stageUnlock = new bool[10];   //index <- stageNum
+    //Save Data Key
+    public readonly string bestEasy = "bestScoreEasy";
+    public readonly string bestNormal = "bestScoreNormal";
+    public readonly string bestHard = "bestScoreHard";
+    public readonly string bestHidden = "bestScoreHidden";
+    public readonly string unlockNormal = "unlockNormal";
+    public readonly string unlockHard = "unlockHard";
+    public readonly string unlockHidden = "unlockHidden";
 
     private void Awake()
     {
@@ -20,10 +26,6 @@ public class GameData : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
-            record = Enumerable.Repeat(float.MaxValue, 10).ToArray();
-            stageUnlock = new bool[10];
-            stageUnlock[0] = true; //first stage unlock
         }
     }
 }
