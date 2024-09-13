@@ -410,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &464653753
 RectTransform:
   m_ObjectHideFlags: 0
@@ -424,7 +424,7 @@ RectTransform:
   m_Children:
   - {fileID: 23341204}
   m_Father: {fileID: 982182344}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -934,9 +934,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1670895306}
   - {fileID: 1516152897}
   - {fileID: 464653753}
+  - {fileID: 1670895306}
   - {fileID: 1092586993}
   m_Father: {fileID: 25997806}
   m_RootOrder: 0
@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef18ac163a47a741ab88e5f78a7670f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageUnlock: 0
   stageNum: 0
   cardSet: 8
   timeSet: 0
@@ -1255,7 +1256,7 @@ RectTransform:
   m_Children:
   - {fileID: 595274599}
   m_Father: {fileID: 982182344}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1475,7 +1476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1670895306
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1489,7 +1490,7 @@ RectTransform:
   m_Children:
   - {fileID: 171763947}
   m_Father: {fileID: 982182344}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

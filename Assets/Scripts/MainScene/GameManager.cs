@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
     private AudioSource audioSource;
     public AudioClip clip;
+    public GameObject endPanel;
 
     int data_Stage = 0;
     int data_Card = 8;
@@ -61,8 +62,9 @@ public class GameManager : MonoBehaviour
             
             if (cardCount == 0)
             {
-                endTxt.SetActive(true);
+                endPanel.SetActive(true);
                 Time.timeScale = 0;
+                GameData.Instance.stageUnlock = true;
             }
         }
         else
