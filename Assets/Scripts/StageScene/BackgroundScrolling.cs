@@ -13,6 +13,7 @@ public class BackgroundScrolling : MonoBehaviour
     private void Start() 
     {
         background = transform.Find("Building").GetComponent<Image>();
+        Time.timeScale = 1.0f;
     }
 
     private void Update() 
