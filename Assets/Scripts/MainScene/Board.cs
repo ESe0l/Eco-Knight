@@ -166,8 +166,8 @@ public class Board : MonoBehaviour
         int rand2 = Random.Range(0, numOfChild);
         Card card1 = (rand1 == 0) ? child1.GetComponent<Card>() : child2.GetComponent<Card>();
         Card card2 = cards[rand2].GetComponent<Card>();
-        card1.moveDest = card2.transform.localPosition;
-        card2.moveDest = card1.transform.localPosition;
+        card1.moveDest = Vector3.Scale(card2.transform.localPosition, transform.localScale);
+        card2.moveDest = Vector3.Scale(card1.transform.localPosition, transform.localScale);
         card1.actMove = true;
         card2.actMove = true;
     }
